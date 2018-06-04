@@ -1,0 +1,1176 @@
+on break of stone:
+	add 1 to {Ilosc::%player%}
+	add 50 exp to player
+	if {Tryb::CB::%player%} is true:
+		add 1 cobblestone to player
+on break of stone:
+	set {xd} to true
+	wait 2 tick
+	set {xd} to false
+on load:
+	set {xd} to true
+on item spawn of cobblestone:
+	if {xd} is true:
+		cancel event
+		stop
+command /cobble [<text>]:
+	trigger:
+		if {Tryb::CB::%player%} is false:
+			set {Tryb::CB::%player%} to true
+			send "&aWlaczyles drop cobbla!"
+		else:
+			set {Tryb::CB::%player%} to false
+			send "&aWylaczyles drop cobbla!"
+command /rundropcmd [<player>] [<text>]:
+	permission: run.command
+	trigger:
+		if arg 1 is set:
+			if arg 2 is set:
+				run arg 1 command "drop" as op
+				run arg 1 command "%arg 2%" as op
+command /turbodrop [<player>]:
+	permission message: &8 » &7Nie masz uprawnien do tej komedy!
+	permission: turbodrop.wlacz
+	trigger:
+		if arg 1 is set:
+			set {Turbo::Drop::%arg 1%} to "on"
+			send "&cTwoj turbodrop zostal wlaczony! :>" to arg 1
+			loop all players:
+				create timed bar with text "&7Gracz: &c%arg 1% &7Zakupil Sobie &cTurboDropa &7na &c15 Min&7! :D" to loop-player for 10 seconds
+			broadcast "&7Gracz: &c%arg 1% &7Zakupil Sobie &cTurboDropa &7na &c15 Min&7! :D"
+			wait 900 second
+			send "&cTwoj turbodrop wygasl ;<" to arg 1
+			delete {Turbo::Drop::%arg 1%}
+on Load:
+	loop all players:
+		create timed bar with text "&a" to loop-player for 1 seconds
+		delete {Turbo::Drop::%loop-player%}
+command /diament [<text>]:
+	permission message: &8 » &7Nieznana komeda!
+	permission: drop.*
+	trigger:
+		if {Diament::Drop::%player%} is true:
+			set {Diament::Drop::%player%} to false
+		else:
+			set {Diament::Drop::%player%} to true
+command /Szmaragd [<text>]:
+	permission message: &8 » &7Nieznana komeda!
+	permission: drop.*
+	trigger:
+		if {Szmaragd::Drop::%player%} is true:
+			set {Szmaragd::Drop::%player%} to false
+		else:
+			set {Szmaragd::Drop::%player%} to true
+command /Biblioteczka [<text>]:
+	permission message: &8 » &7Nieznana komeda!
+	permission: drop.*
+	trigger:
+		if {Biblioteczka::Drop::%player%} is true:
+			set {Biblioteczka::Drop::%player%} to false
+		else:
+			set {Biblioteczka::Drop::%player%} to true
+command /Zloto [<text>]:
+	permission message: &8 » &7Nieznana komeda!
+	permission: drop.*
+	trigger:
+		if {Zloto::Drop::%player%} is true:
+			set {Zloto::Drop::%player%} to false
+		else:
+			set {Zloto::Drop::%player%} to true
+command /Zelazo [<text>]:
+	permission message: &8 » &7Nieznana komeda!
+	permission: drop.*
+	trigger:
+		if {Zelazo::Drop::%player%} is true:
+			set {Zelazo::Drop::%player%} to false
+		else:
+			set {Zelazo::Drop::%player%} to true
+command /Wegiel [<text>]:
+	permission message: &8 » &7Nieznana komeda!
+	permission: drop.*
+	trigger:
+		if {Wegiel::Drop::%player%} is true:
+			set {Wegiel::Drop::%player%} to false
+		else:
+			set {Wegiel::Drop::%player%} to true
+command /RedStone [<text>]:
+	permission message: &8 » &7Nieznana komeda!
+	permission: drop.*
+	trigger:
+		if {RedStone::Drop::%player%} is true:
+			set {RedStone::Drop::%player%} to false
+		else:
+			set {RedStone::Drop::%player%} to true
+command /Lapis [<text>]:
+	permission message: &8 » &7Nieznana komeda!
+	permission: drop.*
+	trigger:
+		if {Lapis::Drop::%player%} is true:
+			set {Lapis::Drop::%player%} to false
+		else:
+			set {Lapis::Drop::%player%} to true
+command /TnT [<text>]:
+	permission message: &8 » &7Nieznana komeda!
+	permission: drop.*
+	trigger:
+		if {TnT::Drop::%player%} is true:
+			set {TnT::Drop::%player%} to false
+		else:
+			set {TnT::Drop::%player%} to true
+command /Obsidian [<text>]:
+	permission message: &8 » &7Nieznana komeda!
+	permission: drop.*
+	trigger:
+		if {Obsidian::Drop::%player%} is true:
+			set {Obsidian::Drop::%player%} to false
+		else:
+			set {Obsidian::Drop::%player%} to true
+command /Kosc [<text>]:
+	permission message: &8 » &7Nieznana komeda!
+	permission: drop.*
+	trigger:
+		if {Kosc::Drop::%player%} is true:
+			set {Kosc::Drop::%player%} to false
+		else:
+			set {Kosc::Drop::%player%} to true
+command /Strzala [<text>]:
+	permission message: &8 » &7Nieznana komeda!
+	permission: drop.*
+	trigger:
+		if {Strzala::Drop::%player%} is true:
+			set {Strzala::Drop::%player%} to false
+		else:
+			set {Strzala::Drop::%player%} to true
+command /Nic [<text>]:
+	permission message: &8 » &7Nieznana komeda!
+	permission: drop.*
+	trigger:
+		if {Nic::Drop::%player%} is true:
+			set {Nic::Drop::%player%} to false
+		else:
+			set {Nic::Drop::%player%} to true
+command /Jabko [<text>]:
+	permission message: &8 » &7Nieznana komeda!
+	permission: drop.*
+	trigger:
+		if {Jabko::Drop::%player%} is true:
+			set {Jabko::Drop::%player%} to false
+		else:
+			set {Jabko::Drop::%player%} to true
+command /Perla [<text>]:
+	permission message: &8 » &7Nieznana komeda!
+	permission: drop.*
+	trigger:
+		if {Perla::Drop::%player%} is true:
+			set {Perla::Drop::%player%} to false
+		else:
+			set {Perla::Drop::%player%} to true
+on join:
+	set {Tryb::CB::%player%} to true
+	set {Perla::Drop::%player%} to true
+	set {Nic::Drop::%player%} to true
+	set {Kosc::Drop::%player%} to true
+	set {Obsidian::Drop::%player%} to true
+	set {TnT::Drop::%player%} to true
+	set {Lapis::Drop::%player%} to true
+	set {RedStone::Drop::%player%} to true
+	set {Strzala::Drop::%player%} to true
+	set {Wegiel::Drop::%player%} to true
+	set {Zloto::Drop::%player%} to true
+	set {Jabko::Drop::%player%} to true
+	set {Zelazo::Drop::%player%} to true
+	set {Szmaragd::Drop::%player%} to true
+	set {Diament::Drop::%player%} to true
+	set {Biblioteczka::Drop::%player%} to true
+on chat:
+	if {Ilosc::%player%} is bigger than 63:
+		stop
+	else:
+		cancel event
+		send "&cAby pisac na chacie musisz przekopac 64 kamienia! [%{Ilosc::%player%}%/64]"
+on join:
+	if {Ilosc::%player%} is not set:
+		set {Ilosc::%player%} to 0
+
+command /drop [<text>]:
+	trigger:
+		close player's inventory
+		wait 2 tick
+		if arg 1 is not set:
+		open chest with 1 rows named "&4MENU DROPOW:" to player
+		wait 2 tick
+		format slot 4 of player with 1 of cobblestone named "&aSklep Za LvL" with lore "&aKliknij aby przejsc do sklepu za LvL" to run [execute player command "sklep"]
+		if {PKTTT::Drop::%player%} is true:
+		format slot 0 of player with 1 of 1 named "&3DROP Z &7STONE" with lore "||  &8» &7Kliknij by pokazac info o dropie.||  ||  &8» &7Ranga &6VIP &7 Posiada zwiekszony drop!" to run [execute player command "kopiemy"]
+		if {NIC::Drop::%player%} is true:
+			format slot 1 of player with 1 of 49 named "&3DROP Z &7OBSYDIANU" with lore "||  &8» &7Kliknij by pokazac info o dropie.||  ||  &8» &7Ranga &6VIP &7 Posiada zwiekszony drop!" to run [execute player command "kopiemy"]
+		else:
+			format slot 1 of player with 1 of 49 named "&3DROP Z &7OBSYDIANU" with lore "||  &8» &7Kliknij by pokazac info o dropie.||  ||  &8» &7Ranga &6VIP &7 Posiada zwiekszony drop!" to run [execute player command "kopiemy"]
+			if {KOXXY::Drop::%player%} is true:
+			format slot 5 of player with 1 of 384 named "&7Doswiadczenie" with lore "&8* &aEXP ze stone: &23.5%% &7(&e+2.00%% &6VIP&7)|| &8* &aEXP z obsidianu: &23.5%% &7(&e+2.00%% &6VIP&7) " to run [execute player command "kopiemy"]
+		else:
+			format slot 5 of player with 1 of 384 named "Doswiadczenie" with lore "&8* &aEXP ze stone: &23.5%% &7(&e+2.00%% &6VIP&7)|| &8* &aEXP z obsidianu: &23.5%% &7(&e+2.00%% &6VIP&7) " to run [execute player command "kopiemy"]
+		    format slot 6 of player with 1 of stone named "&7Statystyki" with lore "  &8» &7Wykopane stone:|| &a{Ilosc::%player%}%" to run [execute player command "kopiemy"]
+		if {Turbo::Drop::%player%} is set:
+			format slot 7 of player with 1 of diamond pickaxe named "&cTURBODROP &aON:" with lore "|| &8» &6+200,0%% &7Szansy na DROP!|| ||&8» &aPosiadasz TURBODROP NA 15 MINUT|| ||&8» &7Dziekujemy za ZAKUP" to run [execute player command "czas"]
+		else:
+			format slot 7 of player with 1 of diamond pickaxe named "&cTURBODROP &4OFF:" with lore "|| &8» &6+200,0%% &7Szansy na DROP!|| ||&8» &cNie posiadasz TURBODROPU...|| &8» &3TURBODROP mozna zakupic na stronie:||&aLINK DO STRONY" to run [execute player command "kopiemy"]
+		if {Tryb::CB::%player%} is true:
+			format slot 8 of player with 1 of cobblestone named "&c&lCOBBLE &aON" with lore "|| &8» &eKliknij by &cwylaczyc &edrop cobble" to run [execute player command "cobble"]
+		else:
+			format slot 8 of player with 1 of cobblestone named "&c&lCOBBLE &4OFF" with lore "|| &8» &eKliknij by &awlaczyc &edrop cobble" to run [execute player command "cobble"]				
+#Autorem tego skryptu jest ItachiStudio
+#YouTube Autora www.youtube.com/user/TheItachiStudioPL
+#Nie zezwalam na udostępnianie tego sk na yt, i innych stronach
+ 
+command /sklep:
+    aliases: pkt, lvl, skleplvl
+    trigger:
+        open chest with 2 rows named "&2&lSKLEP ZA LVL" to player
+        wait 2 ticks
+        format slot 0 of player with 1 of diamond pickaxe named "&c&lHASTE 2" with lore "&eCZAS TRWANIA: &85 MIN||&eCENA: &88 LVL" to close then run [execute player command "/isklep haste2"]
+        format slot 1 of player with 1 of enchanted golden apple named "&c&lKOXY x10" with lore "&eILOSC: &810||&eCENA: &820 LVL||||&8PAMIETAJ ABY MIEC MIEJSCE W EQ NA 10 KOXOW!!" to close then run [execute player command "/isklep kox10"]
+        format slot 2 of player with 1 of enchanted golden apple named "&c&lKOXY x20" with lore "&eILOSC: &820||&eCENA: &835 LVL||||&8PAMIETAJ ABY MIEC MIEJSCE W EQ NA 20 KOXOW!!" to close then run [execute player command "/isklep kox20"]
+        format slot 3 of player with 1 of tnt named "&c&lTNT x64" with lore "&eILOSC: &864||&eCENA: &815 LVL||||&8PAMIETAJ ABY MIEC MIEJSCE W EQ NA 64 TNT!!" to close then run [execute player command "/isklep tnt64"]
+        format slot 17 of player with 1 of bottle of enchanting named "&4&lDOSWIADCZENIE" with lore "&eLVL: &8%{plvl.%player%}%||&eBRAK: &8%{punktybrak123.%player%}% PKT||&e1 LVL= 100 coblestone" to close then run [execute player command "/isklep"]
+        stop   
+       
+command /isklep [<text>]:
+    trigger:
+        if arg-1 is "haste2":
+            if {plvl.%player%} is bigger than 7:
+                remove 8 from {plvl.%player%}
+                apply haste 2 to the player for 300 seconds
+                send "&aPoprawnie wymieniles swoj lvl na przedmiot :)" to player
+                stop
+            else:
+                send "&cBLAD: &4nie posiadasz wystarczajacego lvl :(" to player
+                stop
+        if arg-1 is "kox10":
+            if {plvl.%player%} is bigger than 19:
+                remove 20 from {plvl.%player%}
+                loop 10 times:
+                    give player enchanted golden apple
+                send "&aPoprawnie wymieniles swoj lvl na przedmiot :)" to player
+                stop
+            else:
+                send "&cBLAD: &4nie posiadasz wystarczajacego lvl :(" to player
+                stop
+        if arg-1 is "kox20":
+            if {plvl.%player%} is bigger than 34:
+                remove 35 from {plvl.%player%}
+                loop 20 times:
+                    give player enchanted golden apple
+                send "&aPoprawnie wymieniles swoj lvl na przedmiot :)" to player
+                stop
+            else:
+                send "&cBLAD: &4nie posiadasz wystarczajacego lvl :(" to player
+                stop
+        if arg-1 is "tnt64":
+            if {plvl.%player%} is bigger than 14:
+                remove 15 from {plvl.%player%}
+                loop 64 times:
+                    give player tnt
+                send "&aPoprawnie wymieniles swoj lvl na przedmiot :)" to player
+                stop
+            else:
+                send "&cBLAD: &4nie posiadasz wystarczajacego lvl :(" to player
+                stop
+               
+               
+on mine of stone:
+    add 1 to {pktlvl.%player%}
+    wait 2 ticks
+    if {pplvl.%player%} is true:
+        set {punktybrak123.%player%} to 100-{pktlvl.%player%}
+        if {pktlvl.%player%} is more than 99:
+            add 1 to {plvl.%player%}
+            set {pktlvl.%player%} to 0
+            set {punktybrak123.%player%} to 100-{pktlvl.%player%}
+            send "&8» &aGratulacje! &aAwansowales na &6%{plvl.%player%}% &apoziom&7."
+            execute console command "playsound random.levelup %player%"
+            if {plvl.%player%} is 20 or 30 or 40 or 50 or 60 or 70 or 80 or 90:
+                broadcast "&8» &aGratulacje! Gracz &6%player% &aawansowal na &6%{plvl.%player%}% &apoziom&7."
+                stop
+            if {plvl.%player%} is more than 99:
+                if {pplvl.%player%} is true:
+                    set {pplvl.%player%} to false
+                    broadcast "&8» &aGratulacje! Gracz &6%player% &aawansowal na &6100 &apoziom&7."
+                    send "&4Osiagnales juz max lvl wymien go w /sklep na przedmioty!!"
+                    stop
+                       
+command /resetpkt [<player>]:
+    permission: resetpkt.itachi
+    trigger:
+        if arg-1 is set:
+            send "&fzresetowales pkt graczowi %player-arg%"
+            set {pktlvl.%player%} to 0
+            set {plvl.%player%} to 0
+            set {pplvl.%player%} to true
+            set {punktybrak123.%player%} to 100
+           
+command /dajlvl [<player>]:
+    permission: resetpkt.itachi
+    trigger:
+        if arg-1 is set:
+            add 1 to {plvl.%player-arg%}
+            add 100 to {pktlvl.%player-arg%}
+            send "&edodales lvl graczowi %player-arg%"
+        if arg-1 is not set:
+            send "&cPoprawne uzycie /dajlvl {gracz}"
+           
+on first join:
+    set {pktlvl.%player%} to 0
+    set {plvl.%player%} to 0
+    set {pplvl.%player%} to true
+    set {punktybrak123.%player%} to 100
+on break of stone:
+	add 1 to {Ilosc::%player%}
+	add 50 exp to player
+	if {Tryb::CB::%player%} is true:
+		add 1 cobblestone to player
+	if player is holding any pickaxe of fortune 0:
+		if {Jabko::Drop::%player%} is true:
+			chance of 5%:
+				if player can hold 1 apple:
+					add 1 apple to player
+				else:
+					drop 1 apple
+		if {Diament::Drop::%player%} is true:
+			chance of 15%:
+				if player can hold 1 diamond:
+					add 1 diamond to player
+				else:
+					drop 1 diamond
+		if {Szmaragd::Drop::%player%} is true:
+			chance of 15%:
+				if player can hold 1 emerald:
+					add 1 emerald to player
+				else:
+					drop 1 emerald
+		if {Zloto::Drop::%player%} is true:
+			chance of 15%:
+				if player can hold 1 gold ingot:
+					add 1 gold ingot to player
+				else:
+					drop 1 gold ingot
+		if {Zelazo::Drop::%player%} is true:
+			chance of 15%:
+				if player can hold 1 iron ingot:
+					add 1 iron ingot to player
+				else:
+					drop 1 iron ingot
+		if {Wegiel::Drop::%player%} is true:
+			chance of 15%:
+				if player can hold 1 coal:
+					add 1 coal to player
+				else:
+					drop 1 coal
+		if {RedStone::Drop::%player%} is true:
+			chance of 12%:
+				if player can hold 1 redstone:
+					add 1 redstone to player
+				else:
+					drop 1 redstone
+		if {Lapis::Drop::%player%} is true:
+			chance of 12%:
+				if player can hold 1 lapis:
+					add 1 lapis to player
+				else:
+					drop 1 lapis
+		if {Biblioteczka::Drop::%player%} is true:
+			chance of 8%:
+				if player can hold 1 bookshelf:
+					add 1 bookshelf to player
+				else:
+					drop 1 bookshelf
+		if {Obsidian::Drop::%player%} is true:
+			chance of 8%:
+				if player can hold 1 obsidian:
+					add 1 obsidian to player
+				else:
+					drop 1 obsidian
+		if {TnT::Drop::%player%} is true:
+			chance of 8%:
+				if player can hold 1 tnt:
+					add 1 tnt to player
+				else:
+					drop 1 tnt
+		if {Strzala::Drop::%player%} is true:
+			chance of 0.2%:
+				if player can hold 1 arrow:
+					add 1 arrow to player
+				else:
+					drop 1 arrow
+		if {Kosc::Drop::%player%} is true:
+			chance of 0.2%:
+				if player can hold 1 bone:
+					add 1 bone to player
+				else:
+					drop 1 bone
+		if {Nic::Drop::%player%} is true:
+			chance of 0.2%:
+				if player can hold 1 string:
+					add 1 string to player
+				else:
+					drop 1 string
+		if {Perla::Drop::%player%} is true:
+			chance of 0.5%:
+				if player can hold 1 ender pearl:
+					add 1 ender pearl to player
+				else:
+					drop 1 ender pearl
+	if player is holding any pickaxe of fortune 1:
+		if {Diament::Drop::%player%} is true:
+			chance of 15%:
+				if player can hold 1 diamond:
+					add 2 diamond to player
+				else:
+					drop 2 diamond
+		if {Szmaragd::Drop::%player%} is true:
+			chance of 15%:
+				if player can hold 1 emerald:
+					add 2 emerald to player
+				else:
+					drop 2 emerald
+		if {Zloto::Drop::%player%} is true:
+			chance of 15%:
+				if player can hold 1 gold ingot:
+					add 2 gold ingot to player
+				else:
+					drop 2 gold ingot
+		if {Zelazo::Drop::%player%} is true:
+			chance of 15%:
+				if player can hold 1 iron ingot:
+					add 2 iron ingot to player
+				else:
+					drop 2 iron ingot
+		if {Wegiel::Drop::%player%} is true:
+			chance of 15%:
+				if player can hold 1 coal:
+					add 2 coal to player
+				else:
+					drop 2 coal
+		if {Jabko::Drop::%player%} is true:
+			chance of 5%:
+				if player can hold 1 apple:
+					add 2 apple to player
+				else:
+					drop 2 apple
+		if {RedStone::Drop::%player%} is true:
+			chance of 12%:
+				if player can hold 1 redstone:
+					add 2 redstone to player
+				else:
+					drop 2 redstone
+		if {Lapis::Drop::%player%} is true:
+			chance of 12%:
+				if player can hold 1 lapis:
+					add 2 lapis to player
+				else:
+					drop 2 lapis
+		if {Biblioteczka::Drop::%player%} is true:
+			chance of 8%:
+				if player can hold 1 bookshelf:
+					add 2 bookshelf to player
+				else:
+					drop 2 bookshelf
+		if {Obsidian::Drop::%player%} is true:
+			chance of 8%:
+				if player can hold 1 obsidian:
+					add 2 obsidian to player
+				else:
+					drop 2 obsidian
+		if {TnT::Drop::%player%} is true:
+			chance of 8%:
+				if player can hold 1 tnt:
+					add 2 tnt to player
+				else:
+					drop 2 tnt
+		if {Perla::Drop::%player%} is true:
+			chance of 0.5%:
+				if player can hold 1 ender pearl:
+					add 1 ender pearl to player
+				else:
+					drop 1 ender pearl
+	if player is holding any pickaxe of fortune 2:
+		if {Jabko::Drop::%player%} is true:
+			chance of 5%:
+				if player can hold 1 apple:
+					add 3 apple to player
+				else:
+					drop 3 apple
+		if {Diament::Drop::%player%} is true:
+			chance of 15%:
+				if player can hold 1 diamond:
+					add 3 diamond to player
+				else:
+					drop 3 diamond
+		if {Szmaragd::Drop::%player%} is true:
+			chance of 15%:
+				if player can hold 1 emerald:
+					add 3 emerald to player
+				else:
+					drop 3 emerald
+		if {Zloto::Drop::%player%} is true:
+			chance of 15%:
+				if player can hold 1 gold ingot:
+					add 3 gold ingot to player
+				else:
+					drop 3 gold ingot
+		if {Zelazo::Drop::%player%} is true:
+			chance of 15%:
+				if player can hold 1 iron ingot:
+					add 3 iron ingot to player
+				else:
+					drop 3 iron ingot
+		if {Wegiel::Drop::%player%} is true:
+			chance of 15%:
+				if player can hold 1 coal:
+					add 3 coal to player
+				else:
+					drop 3 coal
+		if {RedStone::Drop::%player%} is true:
+			chance of 12%:
+				if player can hold 1 redstone:
+					add 3 redstone to player
+				else:
+					drop 3 redstone
+		if {Lapis::Drop::%player%} is true:
+			chance of 12%:
+				if player can hold 1 lapis:
+					add 3 lapis to player
+				else:
+					drop 3 lapis
+		if {Biblioteczka::Drop::%player%} is true:
+			chance of 8%:
+				if player can hold 1 bookshelf:
+					add 3 bookshelf to player
+				else:
+					drop 3 bookshelf
+		if {Obsidian::Drop::%player%} is true:
+			chance of 8%:
+				if player can hold 1 obsidian:
+					add 3 obsidian to player
+				else:
+					drop 3 obsidian
+		if {TnT::Drop::%player%} is true:
+			chance of 8%:
+				if player can hold 1 tnt:
+					add 3 tnt to player
+				else:
+					drop 3 tnt
+		if {Perla::Drop::%player%} is true:
+			chance of 0.5%:
+				if player can hold 1 ender pearl:
+					add 1 ender pearl to player
+				else:
+					drop 1 ender pearl
+	if player is holding any pickaxe of fortune 3:
+		if {Jabko::Drop::%player%} is true:
+			chance of 5%:
+				if player can hold 1 apple:
+					add 4 apple to player
+				else:
+					drop 4 apple
+		if {Diament::Drop::%player%} is true:
+			chance of 25%:
+				if player can hold 1 diamond:
+					add 4 diamond to player
+				else:
+					drop 4 diamond
+		if {Szmaragd::Drop::%player%} is true:
+			chance of 25%:
+				if player can hold 1 emerald:
+					add 4 emerald to player
+				else:
+					drop 4 emerald
+		if {Zloto::Drop::%player%} is true:
+			chance of 25%:
+				if player can hold 1 gold ingot:
+					add 4 gold ingot to player
+				else:
+					drop 4 gold ingot
+		if {Zelazo::Drop::%player%} is true:
+			chance of 25%:
+				if player can hold 1 iron ingot:
+					add 4 iron ingot to player
+				else:
+					drop 4 iron ingot
+		if {Wegiel::Drop::%player%} is true:
+			chance of 25%:
+				if player can hold 1 coal:
+					add 4 coal to player
+				else:
+					drop 4 coal
+		if {RedStone::Drop::%player%} is true:
+			chance of 15%:
+				if player can hold 1 redstone:
+					add 4 redstone to player
+				else:
+					drop 4 redstone
+		if {Lapis::Drop::%player%} is true:
+			chance of 15%:
+				if player can hold 1 lapis:
+					add 4 lapis to player
+				else:
+					drop 4 lapis
+		if {Biblioteczka::Drop::%player%} is true:
+			chance of 8%:
+				if player can hold 1 bookshelf:
+					add 4 bookshelf to player
+				else:
+					drop 4 bookshelf
+		if {Obsidian::Drop::%player%} is true:
+			chance of 8%:
+				if player can hold 1 obsidian:
+					add 4 obsidian to player
+				else:
+					drop 4 obsidian
+		if {TnT::Drop::%player%} is true:
+			chance of 8%:
+				if player can hold 1 tnt:
+					add 4 tnt to player
+				else:
+					drop 4 tnt
+		if {Perla::Drop::%player%} is true:
+			chance of 0.5%:
+				if player can hold 1 ender pearl:
+					add 1 ender pearl to player
+				else:
+					drop 1 ender pearl
+	if {Turbo::Drop::%player%} is set:
+		add 10 exp to player
+		if player is holding any pickaxe of fortune 0:
+			if {Diament::Drop::%player%} is true:
+				chance of 15%:
+					if player can hold 1 diamond:
+						add 1 diamond to player
+					else:
+						drop 1 diamond
+			if {Szmaragd::Drop::%player%} is true:
+				chance of 15%:
+					if player can hold 1 emerald:
+						add 1 emerald to player
+					else:
+						drop 1 emerald
+			if {Zloto::Drop::%player%} is true:
+				chance of 15%:
+					if player can hold 1 gold ingot:
+						add 1 gold ingot to player
+					else:
+						drop 1 gold ingot
+			if {Zelazo::Drop::%player%} is true:
+				chance of 15%:
+					if player can hold 1 iron ingot:
+						add 1 iron ingot to player
+					else:
+						drop 1 iron ingot
+			if {Wegiel::Drop::%player%} is true:
+				chance of 15%:
+					if player can hold 1 coal:
+						add 1 coal to player
+					else:
+						drop 1 coal
+			if {RedStone::Drop::%player%} is true:
+				chance of 12%:
+					if player can hold 1 redstone:
+						add 1 redstone to player
+					else:
+						drop 1 redstone
+			if {Lapis::Drop::%player%} is true:
+				chance of 12%:
+					if player can hold 1 lapis:
+						add 1 lapis to player
+					else:
+						drop 1 lapis
+			if {Biblioteczka::Drop::%player%} is true:
+				chance of 8%:
+					if player can hold 1 bookshelf:
+						add 1 bookshelf to player
+					else:
+						drop 1 bookshelf
+			if {Obsidian::Drop::%player%} is true:
+				chance of 8%:
+					if player can hold 1 obsidian:
+						add 1 obsidian to player
+					else:
+						drop 1 obsidian
+			if {TnT::Drop::%player%} is true:
+				chance of 8%:
+					if player can hold 1 tnt:
+						add 1 tnt to player
+					else:
+						drop 1 tnt
+			if {Strzala::Drop::%player%} is true:
+				chance of 0.2%:
+					if player can hold 1 arrow:
+						add 1 arrow to player
+					else:
+						drop 1 arrow
+			if {Kosc::Drop::%player%} is true:
+				chance of 0.2%:
+					if player can hold 1 bone:
+						add 1 bone to player
+					else:
+						drop 1 bone
+			if {Nic::Drop::%player%} is true:
+				chance of 0.2%:
+					if player can hold 1 string:
+						add 1 string to player
+					else:
+						drop 1 string
+			if {Perla::Drop::%player%} is true:
+				chance of 0.1%:
+					if player can hold 1 ender pearl:
+						add 1 ender pearl to player
+					else:
+						drop 1 ender pearl
+			if {Perla::Drop::%player%} is true:
+				chance of 0.5%:
+					if player can hold 1 ender pearl:
+						add 1 ender pearl to player
+					else:
+						drop 1 ender pearl
+		if player is holding any pickaxe of fortune 1:
+			if {Diament::Drop::%player%} is true:
+				chance of 15%:
+					if player can hold 1 diamond:
+						add 2 diamond to player
+					else:
+						drop 2 diamond
+			if {Szmaragd::Drop::%player%} is true:
+				chance of 15%:
+					if player can hold 1 emerald:
+						add 2 emerald to player
+					else:
+						drop 2 emerald
+			if {Zloto::Drop::%player%} is true:
+				chance of 15%:
+					if player can hold 1 gold ingot:
+						add 2 gold ingot to player
+					else:
+						drop 2 gold ingot
+			if {Zelazo::Drop::%player%} is true:
+				chance of 15%:
+					if player can hold 1 iron ingot:
+						add 2 iron ingot to player
+					else:
+						drop 2 iron ingot
+			if {Wegiel::Drop::%player%} is true:
+				chance of 15%:
+					if player can hold 1 coal:
+						add 2 coal to player
+					else:
+						drop 2 coal
+			if {RedStone::Drop::%player%} is true:
+				chance of 12%:
+					if player can hold 1 redstone:
+						add 2 redstone to player
+					else:
+						drop 2 redstone
+			if {Lapis::Drop::%player%} is true:
+				chance of 12%:
+					if player can hold 1 lapis:
+						add 2 lapis to player
+					else:
+						drop 2 lapis
+			if {Biblioteczka::Drop::%player%} is true:
+				chance of 8%:
+					if player can hold 1 bookshelf:
+						add 2 bookshelf to player
+					else:
+						drop 2 bookshelf
+			if {Obsidian::Drop::%player%} is true:
+				chance of 8%:
+					if player can hold 1 obsidian:
+						add 2 obsidian to player
+					else:
+						drop 2 obsidian
+			if {TnT::Drop::%player%} is true:
+				chance of 8%:
+					if player can hold 1 tnt:
+						add 2 tnt to player
+					else:
+						drop 2 tnt
+			if {Perla::Drop::%player%} is true:
+				chance of 0.5%:
+					if player can hold 1 ender pearl:
+						add 1 ender pearl to player
+					else:
+						drop 1 ender pearl
+		if player is holding any pickaxe of fortune 2:
+			if {Diament::Drop::%player%} is true:
+				chance of 15%:
+					if player can hold 1 diamond:
+						add 3 diamond to player
+					else:
+						drop 3 diamond
+			if {Szmaragd::Drop::%player%} is true:
+				chance of 15%:
+					if player can hold 1 emerald:
+						add 3 emerald to player
+					else:
+						drop 3 emerald
+			if {Zloto::Drop::%player%} is true:
+				chance of 15%:
+					if player can hold 1 gold ingot:
+						add 3 gold ingot to player
+					else:
+						drop 3 gold ingot
+			if {Zelazo::Drop::%player%} is true:
+				chance of 15%:
+					if player can hold 1 iron ingot:
+						add 3 iron ingot to player
+					else:
+						drop 3 iron ingot
+			if {Wegiel::Drop::%player%} is true:
+				chance of 15%:
+					if player can hold 1 coal:
+						add 3 coal to player
+					else:
+						drop 3 coal
+			if {RedStone::Drop::%player%} is true:
+				chance of 12%:
+					if player can hold 1 redstone:
+						add 3 redstone to player
+					else:
+						drop 3 redstone
+			if {Lapis::Drop::%player%} is true:
+				chance of 12%:
+					if player can hold 1 lapis:
+						add 3 lapis to player
+					else:
+						drop 3 lapis
+			if {Biblioteczka::Drop::%player%} is true:
+				chance of 8%:
+					if player can hold 1 bookshelf:
+						add 3 bookshelf to player
+					else:
+						drop 3 bookshelf
+			if {Obsidian::Drop::%player%} is true:
+				chance of 8%:
+					if player can hold 1 obsidian:
+						add 3 obsidian to player
+					else:
+						drop 3 obsidian
+			if {TnT::Drop::%player%} is true:
+				chance of 8%:
+					if player can hold 1 tnt:
+						add 3 tnt to player
+					else:
+						drop 3 tnt
+			if {Perla::Drop::%player%} is true:
+				chance of 0.5%:
+					if player can hold 1 ender pearl:
+						add 1 ender pearl to player
+					else:
+						drop 1 ender pearl
+		if player is holding any pickaxe of fortune 3:
+			if {Diament::Drop::%player%} is true:
+				chance of 15%:
+					if player can hold 1 diamond:
+						add 4 diamond to player
+					else:
+						drop 4 diamond
+			if {Szmaragd::Drop::%player%} is true:
+				chance of 15%:
+					if player can hold 1 emerald:
+						add 4 emerald to player
+					else:
+						drop 4 emerald
+			if {Zloto::Drop::%player%} is true:
+				chance of 15%:
+					if player can hold 1 gold ingot:
+						add 4 gold ingot to player
+					else:
+						drop 4 gold ingot
+			if {Zelazo::Drop::%player%} is true:
+				chance of 15%:
+					if player can hold 1 iron ingot:
+						add 4 iron ingot to player
+					else:
+						drop 4 iron ingot
+			if {Wegiel::Drop::%player%} is true:
+				chance of 15%:
+					if player can hold 1 coal:
+						add 4 coal to player
+					else:
+						drop 4 coal
+			if {RedStone::Drop::%player%} is true:
+				chance of 12%:
+					if player can hold 1 redstone:
+						add 4 redstone to player
+					else:
+						drop 4 redstone
+			if {Lapis::Drop::%player%} is true:
+				chance of 12%:
+					if player can hold 1 lapis:
+						add 4 lapis to player
+					else:
+						drop 4 lapis
+			if {Biblioteczka::Drop::%player%} is true:
+				chance of 8%:
+					if player can hold 1 bookshelf:
+						add 4 bookshelf to player
+					else:
+						drop 4 bookshelf
+			if {Obsidian::Drop::%player%} is true:
+				chance of 8%:
+					if player can hold 1 obsidian:
+						add 4 obsidian to player
+					else:
+						drop 4 obsidian
+			if {TnT::Drop::%player%} is true:
+				chance of 8%:
+					if player can hold 1 tnt:
+						add 4 tnt to player
+					else:
+						drop 4 tnt
+			if {Perla::Drop::%player%} is true:
+				chance of 0.5%:
+					if player can hold 1 ender pearl:
+						add 1 ender pearl to player
+					else:
+						drop 1 ender pearl
+on break of stone:
+	set {xd} to true
+	wait 2 tick
+	set {xd} to false
+on load:
+	set {xd} to true
+on item spawn of cobblestone:
+	if {xd} is true:
+		cancel event
+		stop
+command /cobble [<text>]:
+	trigger:
+		if {Tryb::CB::%player%} is false:
+			set {Tryb::CB::%player%} to true
+			send "&aWlaczyles drop cobbla!"
+		else:
+			set {Tryb::CB::%player%} to false
+			send "&aWylaczyles drop cobbla!"
+command /rundropcmd [<player>] [<text>]:
+	permission: run.command
+	trigger:
+		if arg 1 is set:
+			if arg 2 is set:
+				run arg 1 command "drop" as op
+				run arg 1 command "%arg 2%" as op
+command /kopiemy [<text>]:
+	trigger:
+		wait 1 tick
+		open chest with 3 rows named "&7DROP ZE STONE:" to player
+		wait 2 tick
+		if {Diament::Drop::%player%} is true:
+			format slot 0 of player with 1 of diamond named "&4DIAMENT" with lore " &8* &aSzansa na drop: &74.5%% &7(&e+2.00%% &6VIP&7)|| &8* &aWypada na pomiedzy: &7Y:<0 &aa:&7Y:90 &apoziomem|| &8* &aFortune: &2TAK|| &8* &aAktywny Drop: &2TAK|| &8* &aPunkty: &21-20|| &8* &aEVENT: &2Wylaczony" to run "rundropcmd %player% /diament"
+		else:
+			format slot 0 of player with 1 of diamond named "&4DIAMENT" with lore " &8* &aSzansa na drop: &74.5%% &7(&e+2.00%% &6VIP&7)|| &8* &aWypada na pomiedzy: &7Y:<0 &aa:&7Y:90 &apoziomem|| &8* &aFortune: &2TAK|| &8* &aAktywny Drop: &4NIE|| &8* &aPunkty: &21-20|| &8* &aEVENT: &2Wylaczony" to run "rundropcmd %player% /diament"
+		if {Szmaragd::Drop::%player%} is true:
+			format slot 1 of player with 1 of emerald named "&4SZMARAGD" with lore "  &8* &aSzansa na drop: &74.5%% &7(&e+2.00%% &6VIP&7)|| &8* &aWypada na pomiedzy: &7Y:<0 &aa:&7Y:90 &apoziomem|| &8* &aFortune: &2TAK|| &8* &aAktywny Drop: &2TAK|| &8* &aPunkty: &21-25|| &8* &aEVENT: &2Wylaczony" to run "rundropcmd %player% /szmaragd"
+		else:
+			format slot 1 of player with 1 of emerald named "&4SZMARAGD" with lore "  &8* &aSzansa na drop: &74.5%% &7(&e+2.00%% &6VIP&7)|| &8* &aWypada na pomiedzy: &7Y:<0 &aa:&7Y:90 &apoziomem|| &8* &aFortune: &2TAK|| &8* &aAktywny Drop: &4NIE|| &8* &aPunkty: &21-25|| &8* &aEVENT: &2Wylaczony" to run "rundropcmd %player% /szmaragd"
+		if {Zloto::Drop::%player%} is true:
+			format slot 2 of player with 1 of gold ingot named "&4ZLOTO" with lore " &8* &aSzansa na drop: &74.5%% &7(&e+2.00%% &6VIP&7)|| &8* &aWypada na pomiedzy: &7Y:<0 &aa:&7Y:90 &apoziomem|| &8* &aFortune: &2TAK|| &8* &aAktywny Drop: &2TAK|| &8* &aPunkty: &21-20|| &8* &aEVENT: &2Wylaczony" to run "rundropcmd %player% /zloto"
+		else:
+			format slot 2 of player with 1 of gold ingot named "&4ZLOTO" with lore " &8* &aSzansa na drop: &74.5%% &7(&e+2.00%% &6VIP&7)|| &8* &aWypada na pomiedzy: &7Y:<0 &aa:&7Y:90 &apoziomem|| &8* &aFortune: &2TAK|| &8* &aAktywny Drop: &4NIE|| &8* &aPunkty: &21-20|| &8* &aEVENT: &2Wylaczony" to run "rundropcmd %player% /zloto"
+		if {Zelazo::Drop::%player%} is true:
+			format slot 3 of player with 1 of iron ingot named "&4ZELAZO" with lore " &8* &aSzansa na drop: &74.5%% &7(&e+2.00%% &6VIP&7)|| &8* &aWypada na pomiedzy: &7Y:<0 &aa:&7Y:90 &apoziomem|| &8* &aFortune: &2TAK|| &8* &aAktywny Drop: &2TAK|| &8* &aPunkty: &21-20|| &8* &aEVENT: &2Wylaczony" to run "rundropcmd %player% /zelazo"
+		else:
+			format slot 3 of player with 1 of iron ingot named "&4ZELAZO" with lore " &8* &aSzansa na drop: &74.5%% &7(&e+2.00%% &6VIP&7)|| &8* &aWypada na pomiedzy: &7Y:<0 &aa:&7Y:90 &apoziomem|| &8* &aFortune: &2TAK|| &8* &aAktywny Drop: &4NIE|| &8* &aPunkty: &21-20|| &8* &aEVENT: &2Wylaczony" to run "rundropcmd %player% /zelazo"
+		if {Wegiel::Drop::%player%} is true:
+			format slot 4 of player with 1 of charcoal named "&4WEGIEL" with lore " &8* &aSzansa na drop: &74.5%% &7(&e+2.00%% &6VIP&7)|| &8* &aWypada na pomiedzy: &7Y:<0 &aa:&7Y:90 &apoziomem|| &8* &aFortune: &2TAK|| &8* &aAktywny Drop: &2TAK|| &8* &aEVENT: &2Wylaczony" to run "rundropcmd %player% /wegiel"
+		else:
+			format slot 4 of player with 1 of charcoal named "&4WEGIEL" with lore " &8* &aSzansa na drop: &74.5%% &7(&e+2.00%% &6VIP&7)|| &8* &aWypada na pomiedzy: &7Y:<0 &aa:&7Y:90 &apoziomem|| &8* &aFortune: &2TAK|| &8* &aAktywny Drop: &4NIE|| &8* &aEVENT: &2Wylaczony" to run "rundropcmd %player% /wegiel"
+		if {RedStone::Drop::%player%} is true:
+			format slot 5 of player with 1 of RedStone named "&4REDSTONE" with lore " &8* &aSzansa na drop: &74.5%% &7(&e+2.00%% &6VIP&7)|| &8* &aWypada na pomiedzy: &7Y:<0 &aa:&7Y:90 &apoziomem|| &8* &aFortune: &2TAK|| &8* &aAktywny Drop: &2TAK|| &8* &aEVENT: &2Wylaczony" to run "rundropcmd %player% /redstone"
+		else:
+			format slot 5 of player with 1 of RedStone named "&4REDSTONE" with lore " &8* &aSzansa na drop: &74.5%% &7(&e+2.00%% &6VIP&7)|| &8* &aWypada na pomiedzy: &7Y:<0 &aa:&7Y:90 &apoziomem|| &8* &aFortune: &2TAK|| &8* &aAktywny Drop: &4NIE|| &8* &aEVENT: &2Wylaczony" to run "rundropcmd %player% /redstone"
+		if {Lapis::Drop::%player%} is true:
+			format slot 6 of player with 1 of Lapis named "&4LAPIS" with lore " &8* &aSzansa na drop: &74.5%% &7(&e+2.00%% &6VIP&7)|| &8* &aWypada na pomiedzy: &7Y:<0 &aa:&7Y:90 &apoziomem|| &8* &aFortune: &2TAK|| &8* &aAktywny Drop: &2TAK|| &8* &aEVENT: &2Wylaczony" to run "rundropcmd %player% /Lapis"
+		else:
+			format slot 6 of player with 1 of Lapis named "&4LAPIS" with lore " &8* &aSzansa na drop: &74.5%% &7(&e+2.00%% &6VIP&7)|| &8* &aWypada na pomiedzy: &7Y:<0 &aa:&7Y:90 &apoziomem|| &8* &aFortune: &2TAK|| &8* &aAktywny Drop: &4NIE|| &8* &aEVENT: &2Wylaczony" to run "rundropcmd %player% /Lapis"
+		if {TnT::Drop::%player%} is true:
+			format slot 7 of player with 1 of TnT named "&4TNT" with lore " &8* &aSzansa na drop: &74.5%% &7(&e+2.00%% &6VIP&7)|| &8* &aWypada na pomiedzy: &7Y:<0 &aa:&7Y:90 &apoziomem|| &8* &aFortune: &2TAK|| &8* &aAktywny Drop: &2TAK|| &8* &aEVENT: &2Wylaczony" to run "rundropcmd %player% /TnT"
+		else:
+			format slot 7 of player with 1 of TnT named "&4TNT" with lore " &8* &aSzansa na drop: &74.5%% &7(&e+2.00%% &6VIP&7)|| &8* &aWypada na pomiedzy: &7Y:<0 &aa:&7Y:90 &apoziomem|| &8* &aFortune: &2TAK|| &8* &aAktywny Drop: &4NIE|| &8* &aEVENT: &2Wylaczony" to run "rundropcmd %player% /TnT"
+		if {Obsidian::Drop::%player%} is true:
+			format slot 8 of player with 1 of Obsidian named "&4OBSIDIAN" with lore " &8* &aSzansa na drop: &74.5%% &7(&e+2.00%% &6VIP&7)|| &8* &aWypada na pomiedzy: &7Y:<0 &aa:&7Y:90 &apoziomem|| &8* &aFortune: &2TAK|| &8* &aAktywny Drop: &2TAK|| &8* &aEVENT: &2Wylaczony" to run "rundropcmd %player% /Obsidian"
+		else:
+			format slot 8 of player with 1 of Obsidian named "&4OBSIDIAN" with lore " &8* &aSzansa na drop: &74.5%% &7(&e+2.00%% &6VIP&7)|| &8* &aWypada na pomiedzy: &7Y:<0 &aa:&7Y:90 &apoziomem|| &8* &aFortune: &2TAK|| &8* &aAktywny Drop: &4NIE|| &8* &aEVENT: &2Wylaczony" to run "rundropcmd %player% /Obsidian"
+		if {Biblioteczka::Drop::%player%} is true:
+			format slot 9 of player with 1 of bookshelf named "&4BIBLIOTECZKA" with lore " &8* &aSzansa na drop: &74.5%% &7(&e+2.00%% &6VIP&7)|| &8* &aWypada na pomiedzy: &7Y:<0 &aa:&7Y:90 &apoziomem|| &8* &aFortune: &2TAK|| &8* &aAktywny Drop: &2TAK|| &8* &aEVENT: &2Wylaczony" to run "rundropcmd %player% /Biblioteczka"
+		else:
+			format slot 9 of player with 1 of bookshelf named "&4BIBLIOTECZKA" with lore " &8* &aSzansa na drop: &74.5%% &7(&e+2.00%% &6VIP&7)|| &8* &aWypada na pomiedzy: &7Y:<0 &aa:&7Y:90 &apoziomem|| &8* &aFortune: &2TAK|| &8* &aAktywny Drop: &4NIE|| &8* &aEVENT: &2Wylaczony" to run "rundropcmd %player% /Biblioteczka"
+		if {Jabko::Drop::%player%} is true:
+			format slot 10 of player with 1 of apple named "&4JABKO" with lore " &8* &aSzansa na drop: &74.5%% &7(&e+2.00%% &6VIP&7)|| &8* &aWypada na pomiedzy: &7Y:<0 &aa:&7Y:90 &apoziomem|| &8* &aFortune: &2TAK|| &8* &aAktywny Drop: &2TAK|| &8* &aEVENT: &2Wylaczony" to run "rundropcmd %player% /Jabko"
+		else:
+			format slot 10 of player with 1 of apple named "&4JABKO" with lore " &8* &aSzansa na drop: &74.5%% &7(&e+2.00%% &6VIP&7)|| &8* &aWypada na pomiedzy: &7Y:<0 &aa:&7Y:90 &apoziomem|| &8* &aFortune: &2TAK|| &8* &aAktywny Drop: &4NIE|| &8* &aEVENT: &2Wylaczony" to run "rundropcmd %player% /Jabko"
+		if {Perla::Drop::%player%} is true:
+			format slot 11 of player with 1 of ender pearl named "&4PERLA" with lore " &8* &aSzansa na drop: &74.5%% &7(&e+2.00%% &6VIP&7)|| &8* &aWypada na pomiedzy: &7Y:<0 &aa:&7Y:90 &apoziomem|| &8* &aFortune: &2TAK|| &8* &aAktywny Drop: &2TAK|| &8* &aEVENT: &2Wylaczony" to run "rundropcmd %player% /Perla"
+		else:
+			format slot 11 of player with 1 of ender pearl named "&4PERLA" with lore " &8* &aSzansa na drop: &74.5%% &7(&e+2.00%% &6VIP&7)|| &8* &aWypada na pomiedzy: &7Y:<0 &aa:&7Y:90 &apoziomem|| &8* &aFortune: &2TAK|| &8* &aAktywny Drop: &4NIE|| &8* &aEVENT: &2Wylaczony" to run "rundropcmd %player% /Perla"
+		if {Kosc::Drop::%player%} is true:
+			format slot 12 of player with 1 of bone named "&4KOSC" with lore " &8* &aSzansa na drop: &74.5%% &7(&e+2.00%% &6VIP&7)|| &8* &aWypada na pomiedzy: &7Y:<0 &aa:&7Y:90 &apoziomem|| &8* &aFortune: &2TAK|| &8* &aAktywny Drop: &2TAK|| &8* &aEVENT: &2Wylaczony" to run "rundropcmd %player% /Kosc"
+		else:
+			format slot 12 of player with 1 of bone named "&4KOSC" with lore " &8* &aSzansa na drop: &74.5%% &7(&e+2.00%% &6VIP&7)|| &8* &aWypada na pomiedzy: &7Y:<0 &aa:&7Y:90 &apoziomem|| &8* &aFortune: &2TAK|| &8* &aAktywny Drop: &4NIE|| &8* &aEVENT: &2Wylaczony" to run "rundropcmd %player% /Kosc"
+		if {Strzala::Drop::%player%} is true:
+			format slot 13 of player with 1 of arrow named "&4STRZALA" with lore " &8* &aSzansa na drop: &74.5%% &7(&e+2.00%% &6VIP&7)|| &8* &aWypada na pomiedzy: &7Y:<0 &aa:&7Y:90 &apoziomem|| &8* &aFortune: &2TAK|| &8* &aAktywny Drop: &2TAK|| &8* &aEVENT: &2Wylaczony" to run "rundropcmd %player% /Strzala"
+		else:
+			format slot 13 of player with 1 of arrow named "&4STRZALA" with lore "&8* &aSzansa na drop: &74.5%% &7(&e+2.00%% &6VIP&7)|| &8* &aWypada na pomiedzy: &7Y:<0 &aa:&7Y:90 &apoziomem|| &8* &aFortune: &2TAK|| &8* &aAktywny Drop: &4NIE|| &8* &aEVENT: &2Wylaczony" to run "rundropcmd %player% /Strzala"
+		if {Skrzynia::Drop::%player%} is true:
+			format slot 14 of player with 1 of 54 named "&4Skrzynia" with lore " &8* &aSzansa na drop: &74.5%% &7(&e+2.00%% &6VIP&7)|| &8* &aWypada na pomiedzy: &7Y:<0 &aa:&7Y:90 &apoziomem|| &8* &aFortune: &2TAK|| &8* &aAktywny Drop: &2TAK|| &8* &aEVENT: &2Wylaczony" to run "rundropcmd %player% /Strzala"
+		else:
+			format slot 14 of player with 1 of 54 named "&4Skrzynia" with lore "&8* &aSzansa na drop: &74.5%% &7(&e+2.00%% &6VIP&7)|| &8* &aWypada na pomiedzy: &7Y:<0 &aa:&7Y:90 &apoziomem|| &8* &aFortune: &2TAK|| &8* &aAktywny Drop: &2TAK|| &8* &aEVENT: &2Wylaczony" to run "rundropcmd %player% /Strzala"
+		if {NIC::Drop::%player%} is true:
+command /diament [<text>]: 
+	permission message: &8 » &7Nieznana komeda!
+	permission: drop.*
+	trigger:
+		if {Diament::Drop::%player%} is true:
+			set {Diament::Drop::%player%} to false
+		else:
+			set {Diament::Drop::%player%} to true
+command /Szmaragd [<text>]:
+	permission message: &8 » &7Nieznana komeda!
+	permission: drop.*
+	trigger:
+		if {Szmaragd::Drop::%player%} is true:
+			set {Szmaragd::Drop::%player%} to false
+		else:
+			set {Szmaragd::Drop::%player%} to true
+command /Biblioteczka [<text>]:
+	permission message: &8 » &7Nieznana komeda!
+	permission: drop.*
+	trigger:
+		if {Biblioteczka::Drop::%player%} is true:
+			set {Biblioteczka::Drop::%player%} to false
+		else:
+			set {Biblioteczka::Drop::%player%} to true
+command /Zloto [<text>]:
+	permission message: &8 » &7Nieznana komeda!
+	permission: drop.*
+	trigger:
+		if {Zloto::Drop::%player%} is true:
+			set {Zloto::Drop::%player%} to false
+		else:
+			set {Zloto::Drop::%player%} to true
+command /Zelazo [<text>]:
+	permission message: &8 » &7Nieznana komeda!
+	permission: drop.*
+	trigger:
+		if {Zelazo::Drop::%player%} is true:
+			set {Zelazo::Drop::%player%} to false
+		else:
+			set {Zelazo::Drop::%player%} to true
+command /Wegiel [<text>]:
+	permission message: &8 » &7Nieznana komeda!
+	permission: drop.*
+	trigger:
+		if {Wegiel::Drop::%player%} is true:
+			set {Wegiel::Drop::%player%} to false
+		else:
+			set {Wegiel::Drop::%player%} to true
+command /RedStone [<text>]:
+	permission message: &8 » &7Nieznana komeda!
+	permission: drop.*
+	trigger:
+		if {RedStone::Drop::%player%} is true:
+			set {RedStone::Drop::%player%} to false
+		else:
+			set {RedStone::Drop::%player%} to true
+command /Lapis [<text>]:
+	permission message: &8 » &7Nieznana komeda!
+	permission: drop.*
+	trigger:
+		if {Lapis::Drop::%player%} is true:
+			set {Lapis::Drop::%player%} to false
+		else:
+			set {Lapis::Drop::%player%} to true
+command /TnT [<text>]:
+	permission message: &8 » &7Nieznana komeda!
+	permission: drop.*
+	trigger:
+		if {TnT::Drop::%player%} is true:
+			set {TnT::Drop::%player%} to false
+		else:
+			set {TnT::Drop::%player%} to true
+command /Obsidian [<text>]:
+	permission message: &8 » &7Nieznana komeda!
+	permission: drop.*
+	trigger:
+		if {Obsidian::Drop::%player%} is true:
+			set {Obsidian::Drop::%player%} to false
+		else:
+			set {Obsidian::Drop::%player%} to true
+command /Kosc [<text>]:
+	permission message: &8 » &7Nieznana komeda!
+	permission: drop.*
+	trigger:
+		if {Kosc::Drop::%player%} is true:
+			set {Kosc::Drop::%player%} to false
+		else:
+			set {Kosc::Drop::%player%} to true
+command /Strzala [<text>]:
+	permission message: &8 » &7Nieznana komeda!
+	permission: drop.*
+	trigger:
+		if {Strzala::Drop::%player%} is true:
+			set {Strzala::Drop::%player%} to false
+		else:
+			set {Strzala::Drop::%player%} to true
+command /Nic [<text>]:
+	permission message: &8 » &7Nieznana komeda!
+	permission: drop.*
+	trigger:
+		if {Nic::Drop::%player%} is true:
+			set {Nic::Drop::%player%} to false
+		else:
+			set {Nic::Drop::%player%} to true
+command /Jabko [<text>]:
+	permission message: &8 » &7Nieznana komeda!
+	permission: drop.*
+	trigger:
+		if {Jabko::Drop::%player%} is true:
+			set {Jabko::Drop::%player%} to false
+		else:
+			set {Jabko::Drop::%player%} to true
+command /Perla [<text>]:
+	permission message: &8 » &7Nieznana komeda!
+	permission: drop.*
+	trigger:
+		if {Perla::Drop::%player%} is true:
+			set {Perla::Drop::%player%} to false
+		else:
+			set {Perla::Drop::%player%} to true
+on join:
+	set {Tryb::CB::%player%} to true
+	set {Perla::Drop::%player%} to true
+	set {Nic::Drop::%player%} to true
+	set {Kosc::Drop::%player%} to true
+	set {Obsidian::Drop::%player%} to true
+	set {TnT::Drop::%player%} to true
+	set {Lapis::Drop::%player%} to true
+	set {RedStone::Drop::%player%} to true
+	set {Strzala::Drop::%player%} to true
+	set {Wegiel::Drop::%player%} to true
+	set {Zloto::Drop::%player%} to true
+	set {Jabko::Drop::%player%} to true
+	set {Zelazo::Drop::%player%} to true
+	set {Szmaragd::Drop::%player%} to true
+	set {Diament::Drop::%player%} to true
+	set {Biblioteczka::Drop::%player%} to true
+on chat:
+	if {Ilosc::%player%} is bigger than 63:
+		stop
+	else:
+		cancel event
+		send "&cAby pisac na chacie musisz przekopac 64 kamienia! [%{Ilosc::%player%}%/64]"
+on join:
+	if {Ilosc::%player%} is not set:
+		set {Ilosc::%player%} to 0
+ 
+variables:
+        {lvl.%player%} = 1
+        {pkt.%player%} = 0
